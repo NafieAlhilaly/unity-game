@@ -5,6 +5,11 @@ on:
     branches: [develop]
 
 jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: wagoid/commitlint-github-action@v5
   build:
     name: Unit Test
     runs-on: ubuntu-latest

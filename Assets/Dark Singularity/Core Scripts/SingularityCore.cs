@@ -12,8 +12,8 @@ public class SingularityCore : MonoBehaviour
     }
 
     void Awake(){
-        if(GetComponent<SphereCollider>()){
-            GetComponent<SphereCollider>().isTrigger = true;
+        if(GetComponent<CircleCollider2D>()){
+            GetComponent<CircleCollider2D>().isTrigger = true;
         }
     }
 }

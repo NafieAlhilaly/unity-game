@@ -6,10 +6,10 @@ public class Singularity : MonoBehaviour
     public static float m_GravityRadius = 1f;
 
     void Awake() {
-        m_GravityRadius = GetComponent<SphereCollider>().radius;
+        m_GravityRadius = GetComponent<CircleCollider2D>().radius;
 
-        if(GetComponent<SphereCollider>()){
-            GetComponent<SphereCollider>().isTrigger = true;
+        if(GetComponent<CircleCollider2D>()){
+            GetComponent<CircleCollider2D>().isTrigger = true;
         }
     }
     

@@ -10,7 +10,7 @@ namespace Platformer.Mechanics
         /// <summary>
         /// One end of the patrol path.
         /// </summary>
-        public Vector2 startPosition, endPosition;
+        public Vector3 startPosition, endPosition;
 
         /// <summary>
         /// Create a Mover instance which is used to move an entity along the path at a certain speed.

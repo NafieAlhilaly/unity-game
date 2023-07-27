@@ -1,0 +1,14 @@
+name: TODO to Issue
+on:
+  pull_request:
+    branches:
+      - develop
+    types: [closed]
+jobs:
+  get_todo:
+    if: ${{ github.event.pull_request.merged }}
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v3"
+      - name: "TODO to Issue"
+        uses: "alstr/todo-to-issue-action@v4"

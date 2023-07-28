@@ -15,7 +15,5 @@ namespace Platformer.Mechanics
                 GameController.Instance.SetSpawnPoint(transform);
             }
         }
-        
-
     }
 }

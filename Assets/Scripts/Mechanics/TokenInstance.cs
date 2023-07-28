@@ -2,7 +2,6 @@ using Platformer.Gameplay;
 using UnityEngine;
 using static Platformer.Core.Simulation;
 
-
 namespace Platformer.Mechanics
 {
     /// <summary>

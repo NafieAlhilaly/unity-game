@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace Platformer.Core
 {
     public static partial class Simulation
@@ -10,7 +9,6 @@ namespace Platformer.Core
         /// as conditions may have changed in the simulation since the event was 
         /// originally scheduled.
         /// </summary>
-        /// <typeparam name="Event"></typeparam>
         public abstract class Event : System.IComparable<Event>
         {
             internal float tick;
@@ -34,10 +32,7 @@ namespace Platformer.Core
             /// This method is generally used to set references to null when required.
             /// It is automatically called by the Simulation when an event has completed.
             /// </summary>
-            internal virtual void Cleanup()
-            {
-
-            }
+            internal virtual void Cleanup() { }
         }
 
         /// <summary>

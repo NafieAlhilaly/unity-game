@@ -9,7 +9,7 @@ namespace Platformer.Core
     /// <typeparam name="T"></typeparam>
     public class HeapQueue<T> where T : IComparable<T>
     {
-        List<T> items;
+        readonly List<T> items;
 
         public int Count { get { return items.Count; } }
 
@@ -40,12 +40,11 @@ namespace Platformer.Core
 
         public T Pop()
         {
-
             //if there are more than 1 items, returned item will be first in tree.
             //then, add last item to front of tree, shrink the list
             //and find correct index in tree for first item.
             T item;
-            var last = items[items.Count - 1];
+            var last = items[^1];
             items.RemoveAt(items.Count - 1);
             if (items.Count > 0)
             {
@@ -59,7 +58,6 @@ namespace Platformer.Core
             }
             return item;
         }
-
 
         int Compare(T A, T B) => A.CompareTo(B);
 
@@ -85,7 +83,7 @@ namespace Platformer.Core
         void SiftUp()
         {
             var endpos = items.Count;
-            var startpos = 0;
+            const int startpos = 0;
             //preserve the inserted item
             var newitem = items[0];
             var childpos = 1;
@@ -102,7 +100,7 @@ namespace Platformer.Core
                 items[pos] = items[childpos];
                 pos = childpos;
                 //move down the tree and repeat.
-                childpos = 2 * pos + 1;
+                childpos = (2 * pos) + 1;
             }
             //the child position for the new item.
             items[pos] = newitem;

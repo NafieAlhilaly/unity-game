@@ -11,7 +11,7 @@ namespace Platformer.Mechanics
         void OnTriggerEnter2D(Collider2D collider)
         {
             var player = collider.gameObject.GetComponent<PlayerController>();
-            if (player != null && isActive == true)
+            if (player != null && isActive)
             {
                 player.Teleport(TeleportTo.transform.position);
             }

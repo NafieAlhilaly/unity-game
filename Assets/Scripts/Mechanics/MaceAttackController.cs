@@ -24,7 +24,8 @@ namespace Platformer.Mechanics
         }
 
         void Update(){
-            if(MaceCurrentState == MaceState.Idle && IsPlayerIn == true){
+            if(MaceCurrentState == MaceState.Idle && IsPlayerIn)
+            {
                 Attack();
             }
             if(transform.position.y <= PatrolPath.endPosition.y){
@@ -40,7 +41,6 @@ namespace Platformer.Mechanics
 
         void Awake(){
             PatrolPath.startPosition = transform.position;
-
         }
     }
 }

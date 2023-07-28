@@ -9,7 +9,7 @@ namespace Platformer.Gameplay
         public AudioSource InteractionSound;
         public GameObject BoxColliderGameObject;
         public List<GameObject> GameObjectsToFadaway;
-        private List<SpriteRenderer> srs =  new List<SpriteRenderer>();
+        private List<SpriteRenderer> srs = new();
         private BoxCollider2D boxCollider2D;
         void Start()
         {
@@ -29,7 +29,7 @@ namespace Platformer.Gameplay
         {
             for (float f = 1f; f >= 0f; f -= 0.16f)
             {
-                foreach (SpriteRenderer sr in  srs)
+                foreach (SpriteRenderer sr in srs)
                 {
                     Color _color = sr.color;
                     _color.a = f;
@@ -42,7 +42,7 @@ namespace Platformer.Gameplay
             boxCollider2D.enabled = true;
             for (float f = 0f; f <= 1f; f += 0.16f)
             {
-                foreach (SpriteRenderer sr in  srs)
+                foreach (SpriteRenderer sr in srs)
                 {
                     Color _color = sr.color;
                     _color.a = f;

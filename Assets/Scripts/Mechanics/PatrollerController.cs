@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static Platformer.Core.Simulation;
 
 namespace Platformer.Mechanics
 {
@@ -16,7 +15,6 @@ namespace Platformer.Mechanics
         [SerializeField] public bool IsPlayerDetected = false;
         [SerializeField] public bool IsEffected = false;
         private BoxCollider2D boxCollider2D;
-        [SerializeField] CircleCollider2D AreaOfEffect;
         [SerializeField] bool IsLightFading = false;
         [SerializeField] float LightBlinkModifier = 0.01f;
         [SerializeField] float LightOutModifier = 1f;
@@ -26,7 +24,6 @@ namespace Platformer.Mechanics
             NewLightColor.a = LightAlpha;
             Light.color = NewLightColor;
             boxCollider2D = GetComponent<BoxCollider2D>();
-            AreaOfEffect = GetComponent<CircleCollider2D>();
             startPos = new Vector3(Path.startPosition.x, transform.position.y, transform.position.z);
             endPos = new Vector3(Path.endPosition.x, transform.position.y, transform.position.z);
             targetPos = endPos;
@@ -34,7 +31,7 @@ namespace Platformer.Mechanics
 
         void Update()
         {
-            if (IsEffected && IsLightFading == false)
+            if (IsEffected && !IsLightFading)
             {
                 StartLightFade();
             }
@@ -51,7 +48,6 @@ namespace Platformer.Mechanics
             {
                 boxCollider2D.enabled = true;
             }
-
         }
 
         void OnTriggerEnter2D(Collider2D collision)

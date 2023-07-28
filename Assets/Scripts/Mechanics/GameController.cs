@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Platformer.Mechanics
 {
     /// <summary>
-    /// This class exposes the the game model in the inspector, and ticks the
+    /// This class exposes the game model in the inspector, and ticks the
     /// simulation.
-    /// </summary> 
+    /// </summary>
     public class GameController : MonoBehaviour
     {
         public static GameController Instance { get; private set; }

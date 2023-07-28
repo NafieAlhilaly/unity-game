@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Platformer.Core.Simulation;
 
 namespace Platformer.Mechanics
 {
@@ -32,11 +29,11 @@ namespace Platformer.Mechanics
         {
             if (collider2DInfo.gameObject.name == "Player" && transform.position.y <= GateMaxY)
             {
-                transform.position = transform.position + Vector3.up * Time.deltaTime * GateSpeed;
+                transform.position += Vector3.up * Time.deltaTime * GateSpeed;
                 if (transform.position.y >= GateMaxY)
                 {
                     CurrentGateState = GateState.Opened;
-                    if (GateSound.isPlaying == true)
+                    if (GateSound.isPlaying)
                     {
                         GateSound.Stop();
                     }
@@ -53,17 +50,17 @@ namespace Platformer.Mechanics
         }
         void Update()
         {
-            if (transform.position.y < GateMaxY && CurrentGateState == GateState.Opened || transform.position.y > GateMinY && CurrentGateState == GateState.Closed)
+            if ((transform.position.y < GateMaxY && CurrentGateState == GateState.Opened) || (transform.position.y > GateMinY && CurrentGateState == GateState.Closed))
             {
                 CurrentGateState = GateState.Moving;
             }
-            if (IsPlayerIn == false && transform.position.y > GateMinY)
+            if (!IsPlayerIn && transform.position.y > GateMinY)
             {
-                transform.position = transform.position + Vector3.down * Time.deltaTime * GateSpeed;
+                transform.position += Vector3.down * Time.deltaTime * GateSpeed;
                 if (transform.position.y <= GateMinY)
                 {
                     CurrentGateState = GateState.Closed;
-                    if (GateSound.isPlaying == true)
+                    if (GateSound.isPlaying)
                     {
                         GateSound.Stop();
                     }

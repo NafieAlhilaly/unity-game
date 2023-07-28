@@ -24,7 +24,6 @@ namespace Platformer.Mechanics
             /// <summary>
             /// Get the position of the mover for the current frame.
             /// </summary>
-            /// <value></value>
             public Vector2 Position
             {
                 get

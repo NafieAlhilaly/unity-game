@@ -66,6 +66,5 @@ namespace Platformer.Mechanics
                 nextFrameTime += 1f / frameRate;
             }
         }
-
     }
 }

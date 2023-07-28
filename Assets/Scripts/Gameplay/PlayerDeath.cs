@@ -9,10 +9,9 @@ namespace Platformer.Gameplay
     /// <summary>
     /// Fired when the player has died.
     /// </summary>
-    /// <typeparam name="PlayerDeath"></typeparam>
     public class PlayerDeath : Simulation.Event<PlayerDeath>
     {
-        PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {

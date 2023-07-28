@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Platformer.Mechanics
 {
@@ -38,7 +36,6 @@ namespace Platformer.Mechanics
 
         protected const float minMoveDistance = 0.001f;
         protected const float shellRadius = 0.01f;
-
 
         /// <summary>
         /// Bounce the object's vertical velocity.
@@ -94,10 +91,7 @@ namespace Platformer.Mechanics
             ComputeVelocity();
         }
 
-        protected virtual void ComputeVelocity()
-        {
-
-        }
+        protected virtual void ComputeVelocity(){}
 
         protected virtual void FixedUpdate()
         {
@@ -122,7 +116,6 @@ namespace Platformer.Mechanics
             move = Vector2.up * deltaPosition.y;
 
             PerformMovement(move, true);
-
         }
 
         void PerformMovement(Vector2 move, bool yMovement)
@@ -155,7 +148,7 @@ namespace Platformer.Mechanics
                         if (projection < 0)
                         {
                             //slower velocity if moving against the normal (up a hill).
-                            velocity = velocity - projection * currentNormal;
+                            velocity -= projection * currentNormal;
                         }
                     }
                     else
@@ -169,8 +162,7 @@ namespace Platformer.Mechanics
                     distance = modifiedDistance < distance ? modifiedDistance : distance;
                 }
             }
-            body.position = body.position + move.normalized * distance;
+            body.position += move.normalized * distance;
         }
-
     }
 }

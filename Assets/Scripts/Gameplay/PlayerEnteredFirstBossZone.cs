@@ -17,7 +17,7 @@ namespace Platformer.Mechanics
             Debug.Log(sword.transform.position);
             Debug.Log(robocat.transform.position);
 
-            robocat.prepareMovingTo(new Vector3(143.19f, -5.14f, 0));
+            robocat.PrepareMovingTo(new Vector3(143.19f, -5.14f, 0));
             StartCoroutine(CountDownToFight());
         }
 

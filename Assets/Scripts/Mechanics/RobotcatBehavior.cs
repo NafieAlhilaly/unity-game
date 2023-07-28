@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.Mechanics
@@ -7,7 +6,7 @@ namespace Platformer.Mechanics
     public class RobocatBehavior : MonoBehaviour
     {
         Vector3 beginPos;
-        float time = 2f;
+        readonly float time = 2f;
         public GameObject player;
         public bool IsFightStarted = false;
         public SwordBehavior sword;
@@ -22,22 +21,22 @@ namespace Platformer.Mechanics
         public GameObject FlyingPlatform;
         public GameObject GroundPlatform;
 
-        public void prepareMovingTo(Vector3 endPos)
+        public void PrepareMovingTo(Vector3 endPos)
         {
             StartCoroutine(Move(endPos, time));
         }
-        public void prepareMovingToRandomPosition()
+        public void PrepareMovingToRandomPosition()
         {
             float x = Core.Fuzzy.ValueBetween(MinX, MaxX);
             float y = Core.Fuzzy.ValueBetween(MinY, MaxY);
             StartCoroutine(Move(new Vector3(x, y, 0f), time));
         }
-        public void prepareMovingObjectTo(GameObject objectToMove, Vector3 endPos, float time){
+        public void PrepareMovingObjectTo(GameObject objectToMove, Vector3 endPos, float time){
             StartCoroutine(MoveObjectTo(objectToMove, endPos, time));
         }
         void Update()
         {
-            if (IsFightStarted == true)
+            if (IsFightStarted)
             {
                 StartCoroutine(AttackWithSword());
             }
@@ -55,9 +54,9 @@ namespace Platformer.Mechanics
 
         IEnumerator AttackWithSword()
         {
-            if (readyToAttack == false)
+            if (!readyToAttack)
             {
-                sword.prepareMovingTo(transform.position + new Vector3(-2.7f, 0, 0), 1.2f);
+                sword.PrepareMovingTo(transform.position + new Vector3(-2.7f, 0, 0), 1.2f);
                 readyToAttack = true;
                 sword.RotateToTarget(player.transform);
                 yield return new WaitForSeconds(5.0f);

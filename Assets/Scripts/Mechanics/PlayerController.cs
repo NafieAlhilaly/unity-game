@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
@@ -57,7 +55,9 @@ namespace Platformer.Mechanics
             {
                 move.x = Input.GetAxis("Horizontal");
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
+                {
                     jumpState = JumpState.PrepareToJump;
+                }
                 else if (Input.GetButtonUp("Jump"))
                 {
                     stopJump = true;
@@ -114,7 +114,7 @@ namespace Platformer.Mechanics
                 stopJump = false;
                 if (velocity.y > 0)
                 {
-                    velocity.y = velocity.y * model.jumpDeceleration;
+                    velocity.y *= model.jumpDeceleration;
                 }
             }
 

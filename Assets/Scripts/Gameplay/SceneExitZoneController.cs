@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneExitZoneController : MonoBehaviour
+namespace Platformer.Gameplay
 {
-    [SerializeField] int sceneIndex = 1;
-    void OnTriggerEnter2D(Collider2D collider2DInfo)
+    public class SceneExitZoneController : MonoBehaviour
     {
-        if (collider2DInfo.gameObject.name == "Player")
+        [SerializeField] readonly int sceneIndex = 1;
+        void OnTriggerEnter2D(Collider2D collider2DInfo)
         {
-            SceneManager.LoadScene(sceneIndex);
+            if (collider2DInfo.gameObject.name == "Player")
+            {
+                SceneManager.LoadScene(sceneIndex);
+            }
         }
-    }    
+    }
 }

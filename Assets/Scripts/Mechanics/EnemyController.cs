@@ -16,7 +16,6 @@ namespace Platformer.Mechanics
         internal AnimationController control;
         internal Collider2D _collider;
         internal AudioSource _audio;
-        SpriteRenderer spriteRenderer;
 
         public Bounds Bounds => _collider.bounds;
 
@@ -25,7 +24,6 @@ namespace Platformer.Mechanics
             control = GetComponent<AnimationController>();
             _collider = GetComponent<Collider2D>();
             _audio = GetComponent<AudioSource>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
         }
         void OnCollisionEnter2D(Collision2D collision)
         {
@@ -47,6 +45,5 @@ namespace Platformer.Mechanics
                 control.move.y = Mathf.Clamp(mover.Position.y - transform.position.y, -1, 1);
             }
         }
-
     }
 }

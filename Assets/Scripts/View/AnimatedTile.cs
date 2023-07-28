@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using UnityEditor;
 #endif
 
@@ -24,9 +21,9 @@ namespace Platformer.View
         {
             tileData.transform = Matrix4x4.identity;
             tileData.color = Color.white;
-            if (m_AnimatedSprites != null && m_AnimatedSprites.Length > 0)
+            if (m_AnimatedSprites?.Length > 0)
             {
-                tileData.sprite = m_AnimatedSprites[m_AnimatedSprites.Length - 1];
+                tileData.sprite = m_AnimatedSprites[^1];
                 tileData.colliderType = m_TileColliderType;
             }
         }
@@ -48,18 +45,18 @@ namespace Platformer.View
     [CustomEditor(typeof(AnimatedTile))]
     public class AnimatedTileEditor : Editor
     {
-        private AnimatedTile tile { get { return (target as AnimatedTile); } }
+        private AnimatedTile Tile => target as AnimatedTile;
 
         public override void OnInspectorGUI()
         {
             EditorGUI.BeginChangeCheck();
-            int count = EditorGUILayout.DelayedIntField("Number of Animated Sprites", tile.m_AnimatedSprites != null ? tile.m_AnimatedSprites.Length : 0);
+            int count = EditorGUILayout.DelayedIntField("Number of Animated Sprites", (Tile.m_AnimatedSprites?.Length) ?? 0);
             if (count < 0)
                 count = 0;
 
-            if (tile.m_AnimatedSprites == null || tile.m_AnimatedSprites.Length != count)
+            if (Tile.m_AnimatedSprites == null || Tile.m_AnimatedSprites.Length != count)
             {
-                System.Array.Resize<Sprite>(ref tile.m_AnimatedSprites, count);
+                System.Array.Resize<Sprite>(ref Tile.m_AnimatedSprites, count);
             }
 
             if (count == 0)
@@ -70,11 +67,11 @@ namespace Platformer.View
 
             for (int i = 0; i < count; i++)
             {
-                tile.m_AnimatedSprites[i] = (Sprite)EditorGUILayout.ObjectField("Sprite " + (i + 1), tile.m_AnimatedSprites[i], typeof(Sprite), false, null);
+                Tile.m_AnimatedSprites[i] = (Sprite)EditorGUILayout.ObjectField("Sprite " + (i + 1), Tile.m_AnimatedSprites[i], typeof(Sprite), false, null);
             }
 
-            float minSpeed = EditorGUILayout.FloatField("Minimum Speed", tile.m_MinSpeed);
-            float maxSpeed = EditorGUILayout.FloatField("Maximum Speed", tile.m_MaxSpeed);
+            float minSpeed = EditorGUILayout.FloatField("Minimum Speed", Tile.m_MinSpeed);
+            float maxSpeed = EditorGUILayout.FloatField("Maximum Speed", Tile.m_MaxSpeed);
             if (minSpeed < 0.0f)
                 minSpeed = 0.0f;
 
@@ -84,13 +81,13 @@ namespace Platformer.View
             if (maxSpeed < minSpeed)
                 maxSpeed = minSpeed;
 
-            tile.m_MinSpeed = minSpeed;
-            tile.m_MaxSpeed = maxSpeed;
+            Tile.m_MinSpeed = minSpeed;
+            Tile.m_MaxSpeed = maxSpeed;
 
-            tile.m_AnimationStartTime = EditorGUILayout.FloatField("Start Time", tile.m_AnimationStartTime);
-            tile.m_TileColliderType = (Tile.ColliderType)EditorGUILayout.EnumPopup("Collider Type", tile.m_TileColliderType);
+            Tile.m_AnimationStartTime = EditorGUILayout.FloatField("Start Time", Tile.m_AnimationStartTime);
+            Tile.m_TileColliderType = (Tile.ColliderType)EditorGUILayout.EnumPopup("Collider Type", Tile.m_TileColliderType);
             if (EditorGUI.EndChangeCheck())
-                EditorUtility.SetDirty(tile);
+                EditorUtility.SetDirty(Tile);
         }
     }
 #endif

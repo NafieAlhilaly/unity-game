@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Platformer.Core;
+﻿using Platformer.Core;
 using Platformer.Model;
 using UnityEngine;
 
@@ -58,7 +56,7 @@ namespace Platformer.Mechanics
                 stopJump = false;
                 if (velocity.y > 0)
                 {
-                    velocity.y = velocity.y * model.jumpDeceleration;
+                    velocity.y *= model.jumpDeceleration;
                 }
             }
 

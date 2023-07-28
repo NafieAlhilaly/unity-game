@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace Platformer.Core
 {
@@ -11,9 +9,8 @@ namespace Platformer.Core
     /// </summary>
     public static partial class Simulation
     {
-
-        static HeapQueue<Event> eventQueue = new HeapQueue<Event>();
-        static Dictionary<System.Type, Stack<Event>> eventPools = new Dictionary<System.Type, Stack<Event>>();
+        static readonly HeapQueue<Event> eventQueue = new();
+        static readonly Dictionary<System.Type, Stack<Event>> eventPools = new();
 
         /// <summary>
         /// Create a new event of type T and return it, but do not schedule it.
@@ -22,8 +19,7 @@ namespace Platformer.Core
         /// <returns></returns>
         static public T New<T>() where T : Event, new()
         {
-            Stack<Event> pool;
-            if (!eventPools.TryGetValue(typeof(T), out pool))
+            if (!eventPools.TryGetValue(typeof(T), out Stack<Event> pool))
             {
                 pool = new Stack<Event>(4);
                 pool.Push(new T());
@@ -106,8 +102,7 @@ namespace Platformer.Core
         static public int Tick()
         {
             var time = Time.time;
-            var executedEventCount = 0;
-            while (eventQueue.Count > 0 && eventQueue.Peek().tick <= time)
+            for (var executedEventCount = 0; eventQueue.Count > 0 && eventQueue.Peek().tick <= time; executedEventCount++)
             {
                 var ev = eventQueue.Pop();
                 var tick = ev.tick;
@@ -130,11 +125,8 @@ namespace Platformer.Core
                         Debug.LogError($"No Pool for: {ev.GetType()}");
                     }
                 }
-                executedEventCount++;
             }
             return eventQueue.Count;
         }
     }
 }
-
-

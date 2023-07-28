@@ -1,5 +1,4 @@
 using Platformer.Mechanics;
-using Platformer.UI;
 using UnityEngine;
 
 namespace Platformer.UI
@@ -68,6 +67,5 @@ namespace Platformer.UI
                 ToggleMainMenu(show: !showMainCanvas);
             }
         }
-
     }
 }

@@ -18,6 +18,10 @@ namespace Platformer.Mechanics
         [SerializeField] bool IsLightFading = false;
         [SerializeField] float LightBlinkModifier = 0.01f;
         [SerializeField] float LightOutModifier = 1f;
+        [SerializeField] GameObject ElectricShot;
+        [SerializeField] PatrolPath ElectricShotPath;
+        [SerializeField] int ElectricShotSieModifier = 4;
+        [SerializeField] bool IsShooting = false;
         void Start()
         {
             Color NewLightColor = Light.color;
@@ -55,6 +59,14 @@ namespace Platformer.Mechanics
             if (collision.gameObject.tag == "Player")
             {
                 IsPlayerDetected = true;
+            }
+        }
+
+        void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Player" && !IsShooting)
+            {
+                Shoot();
             }
         }
 
@@ -102,6 +114,21 @@ namespace Platformer.Mechanics
             IsLightFading = false;
         }
 
-        // TODO: Add a funtion to make the character attack Player when Player is detected.
+        void Shoot()
+        {
+            StartCoroutine(StartShooting());
+        }
+
+        IEnumerator StartShooting()
+        {
+            IsShooting = true;
+            GameObject newShot = Instantiate(ElectricShot, transform.position, Quaternion.identity);
+            newShot.transform.localScale = new Vector3(
+                newShot.transform.localScale.x * ElectricShotSieModifier,
+                newShot.transform.localScale.y * ElectricShotSieModifier,
+                newShot.transform.localScale.z);
+            yield return new WaitForSeconds(.5f);
+            IsShooting = false;
+        }
     }
 }

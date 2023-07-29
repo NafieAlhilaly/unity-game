@@ -11027,7 +11027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6898565, y: 0.9356314, z: -10}
+  m_LocalPosition: {x: -5.6898575, y: 0.93488014, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52346,11 +52346,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 551343169}
   - {fileID: 1620406958}
-  - {fileID: 353788238}
+  - {fileID: 551343169}
   - {fileID: 1981112391}
   - {fileID: 269479143}
+  - {fileID: 353788238}
   - {fileID: 667994222}
   m_Father: {fileID: 292457042}
   m_RootOrder: 0
@@ -54420,6 +54420,10 @@ MonoBehaviour:
   IsLightFading: 0
   LightBlinkModifier: 0.1
   LightOutModifier: 1
+  ElectricShot: {fileID: 2222947456335998546, guid: 71ab3565df9ad90468d5ea2a78e0fb67,
+    type: 3}
+  ElectricShotPath: {fileID: 0}
+  ElectricShotSieModifier: 4
 --- !u!61 &2109430319
 BoxCollider2D:
   m_ObjectHideFlags: 0

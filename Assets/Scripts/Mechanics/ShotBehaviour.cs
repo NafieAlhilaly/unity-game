@@ -6,12 +6,10 @@ namespace Platformer.Mechanics
     {
         [SerializeField] float Speed = 10f;
         [SerializeField] AudioSource ShotSound;
-        private Transform StartPosition;
 
         void Start()
         {
             ShotSound.Play();
-            StartPosition = transform;
         }
         void Update()
         {

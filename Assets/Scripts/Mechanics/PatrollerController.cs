@@ -19,7 +19,6 @@ namespace Platformer.Mechanics
         [SerializeField] float LightBlinkModifier = 0.01f;
         [SerializeField] float LightOutModifier = 1f;
         [SerializeField] GameObject ElectricShot;
-        [SerializeField] PatrolPath ElectricShotPath;
         [SerializeField] int ElectricShotSieModifier = 4;
         [SerializeField] bool IsShooting = false;
         void Start()

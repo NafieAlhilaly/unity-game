@@ -4981,7 +4981,7 @@ Transform:
   m_Children:
   - {fileID: 3132933659489102083}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5042363725215341828
 SpriteRenderer:
@@ -5098,7 +5098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
-  ShotSound: {fileID: 0}
+  ShotSound: {fileID: 63580238715031080, guid: 9cc9bf1de8866c449bfd2a5677e577ab, type: 3}
 --- !u!82 &1180987917840612570
 AudioSource:
   m_ObjectHideFlags: 0

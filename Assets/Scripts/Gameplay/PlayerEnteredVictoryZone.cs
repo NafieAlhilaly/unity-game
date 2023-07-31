@@ -12,7 +12,7 @@ namespace Platformer.Gameplay
     {
         public VictoryZone victoryZone;
 
-        readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {

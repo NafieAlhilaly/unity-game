@@ -9,8 +9,8 @@ namespace Platformer.Core
     /// </summary>
     public static partial class Simulation
     {
-        static readonly HeapQueue<Event> eventQueue = new();
-        static readonly Dictionary<System.Type, Stack<Event>> eventPools = new();
+        static HeapQueue<Event> eventQueue = new();
+        static Dictionary<System.Type, Stack<Event>> eventPools = new();
 
         /// <summary>
         /// Create a new event of type T and return it, but do not schedule it.

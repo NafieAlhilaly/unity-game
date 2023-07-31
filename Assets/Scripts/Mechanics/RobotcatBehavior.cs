@@ -6,7 +6,7 @@ namespace Platformer.Mechanics
     public class RobocatBehavior : MonoBehaviour
     {
         Vector3 beginPos;
-        readonly float time = 2f;
+        float time = 2f;
         public GameObject player;
         public bool IsFightStarted = false;
         public SwordBehavior sword;

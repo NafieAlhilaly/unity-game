@@ -9,7 +9,7 @@ namespace Platformer.Core
     /// <typeparam name="T"></typeparam>
     public class HeapQueue<T> where T : IComparable<T>
     {
-        readonly List<T> items;
+        List<T> items;
 
         public int Count { get { return items.Count; } }
 

@@ -11,11 +11,11 @@ namespace Platformer.Mechanics
     public class GhostController : MonoBehaviour
     {
         [SerializeField] public SpriteRenderer GhostSprite;
-        [SerializeField] readonly GameObject Player;
-        [SerializeField] readonly float step = 0.1f;
-        [SerializeField] readonly ParticleSystem ps;
+        [SerializeField] GameObject Player;
+        [SerializeField] float step = 0.1f;
+        [SerializeField] ParticleSystem ps;
         public static int DeathCount = 0;
-        [SerializeField] readonly int chasingCountModifier = 0;
+        [SerializeField] int chasingCountModifier = 0;
 
         void Update()
         {

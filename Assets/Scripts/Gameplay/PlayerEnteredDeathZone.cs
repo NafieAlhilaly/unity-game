@@ -11,7 +11,7 @@ namespace Platformer.Gameplay
     {
         public DeathZone deathzone;
 
-        readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {

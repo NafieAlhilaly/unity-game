@@ -11,7 +11,7 @@ namespace Platformer.Gameplay
     /// </summary>
     public class PlayerDeath : Simulation.Event<PlayerDeath>
     {
-        readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {

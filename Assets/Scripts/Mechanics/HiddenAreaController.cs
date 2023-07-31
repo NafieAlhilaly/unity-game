@@ -4,7 +4,7 @@ namespace Platformer.Mechanics
 {
     public class HiddenAreaController : MonoBehaviour
     {
-        [SerializeField] readonly GameObject HiddenArea;
+        [SerializeField] GameObject HiddenArea;
         void OnTriggerEnter2D(Collider2D collider)
         {
             var player = collider.gameObject.GetComponent<PlayerController>();

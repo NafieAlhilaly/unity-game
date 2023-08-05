@@ -8416,18 +8416,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1772946611}
-  - {fileID: 419576588}
+  - {fileID: 1631484500}
   - {fileID: 1090666648}
   - {fileID: 11628179}
+  - {fileID: 419576588}
   - {fileID: 480004327}
-  - {fileID: 495668985}
-  - {fileID: 1161175269}
   - {fileID: 1772406223}
-  - {fileID: 1631484500}
+  - {fileID: 1161175269}
+  - {fileID: 495668985}
+  - {fileID: 1772946611}
   - {fileID: 1621643776}
   - {fileID: 397334320}
   - {fileID: 1297746190}
+  - {fileID: 413185423}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9053,7 +9054,7 @@ GameObject:
   - component: {fileID: 360672328}
   - component: {fileID: 360672329}
   m_Layer: 0
-  m_Name: robocat
+  m_Name: HunterSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9067,7 +9068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360672327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -63.57, y: -11.84, z: 8.972141}
+  m_LocalPosition: {x: -63.58, y: -14.64, z: 8.972141}
   m_LocalScale: {x: 2.9211335, y: 2.8323748, z: 5.5693684}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9115,7 +9116,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 85b22b4dc3f675c49bfda6fdf99e492b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a0bf62d29dce5a459c7e89a33b74cd7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9791,6 +9792,8 @@ MonoBehaviour:
   DarkSingularity: {fileID: 378135423}
   Player: {fileID: 838423049}
   isBossFightStarted: 0
+  DarkSingularitySpeed: 4
+  BossSpeed: 3
 --- !u!4 &413185423
 Transform:
   m_ObjectHideFlags: 0
@@ -9798,13 +9801,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413185421}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 64.46, y: 0.69, z: -12.27327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 311588741}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &413185424
 BoxCollider2D:
@@ -40605,7 +40608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983915316}
   m_Layer: 0
-  m_Name: Robocat
+  m_Name: Hunter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

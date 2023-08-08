@@ -25,4 +25,4 @@ jobs:
       run: dotnet test --no-build --verbosity normal
 
     - name: Run Roslyn analyzer
-      run: dotnet analyzers ./UnityGame.sln /ruleset:./Unity.ruleset
+      run: dotnet analyzers ./correct/path/to/UnityGame.sln /ruleset:./correct/path/to/Unity.ruleset

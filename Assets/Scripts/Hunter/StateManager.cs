@@ -8,6 +8,7 @@ namespace Hunter
         BaseState CurrentState;
         public CleaveState CleaveState = new CleaveState();
         public IdleState IdleState = new IdleState();
+        public RageState RageState = new RageState();
         bool IsWaiting = true;
 
         void Start()

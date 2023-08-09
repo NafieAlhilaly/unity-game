@@ -6,6 +6,7 @@ namespace Hunter
         public float CleaveSide = 1f; // 1 = right, -1 = left
         public bool CleaveDone = false;
         public int CleaveCount = 0;
+        public float CleaveSpeed = 1f;
         public override void StartState(StateManager stateManager){
             CleaveCount++;
         }
@@ -13,9 +14,7 @@ namespace Hunter
         {
             if (CleaveDone &&  CleaveCount >= 3)
             {
-                // TODO: Add rage state for `Hunter` character
-                // label: todo
-                // milestone: 1
+                stateManager.SwitchState(stateManager.RageState);
             }
             stateManager.SwitchState(stateManager.IdleState);
         }

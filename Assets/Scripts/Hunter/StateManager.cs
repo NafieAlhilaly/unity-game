@@ -5,11 +5,11 @@ namespace Hunter
 {
     public class StateManager : MonoBehaviour
     {
-        BaseState CurrentState;
+        public BaseState CurrentState;
         public CleaveState CleaveState = new CleaveState();
         public IdleState IdleState = new IdleState();
         public RageState RageState = new RageState();
-        bool IsWaiting = true;
+        public bool IsWaiting = true;
 
         void Start()
         {
@@ -20,8 +20,9 @@ namespace Hunter
         void Update()
         {
             CurrentState.UpdateState(this);
-            if(CurrentState == IdleState && IsWaiting){
-                StartCoroutine(Wait(2f));
+            if (CurrentState == IdleState && IsWaiting)
+            {
+                StartCoroutine(Wait(4f));
             }
         }
 
@@ -38,11 +39,12 @@ namespace Hunter
             IsWaiting = false;
             yield return new WaitForSeconds(seconds);
             SwitchState(CleaveState);
-            yield return new WaitForSeconds(seconds*0.6f);
+            yield return new WaitForSeconds(seconds * 0.6f);
             IsWaiting = true;
         }
 
-        public void SwitchState(BaseState state){
+        public void SwitchState(BaseState state)
+        {
             CurrentState = state;
             state.StartState(this);
         }

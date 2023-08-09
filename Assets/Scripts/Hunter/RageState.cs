@@ -6,7 +6,9 @@ namespace Hunter
         {
             stateManager.CleaveState.CleaveSpeed += 0.5f;
         }
-        public override void UpdateState(StateManager stateManager) { }
+        public override void UpdateState(StateManager stateManager) {
+            stateManager.SwitchState(stateManager.IdleState);
+         }
 
         public override void ApplyPlayerEffect() { }
 

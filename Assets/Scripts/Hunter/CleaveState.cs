@@ -15,7 +15,8 @@ namespace Hunter
         }
         public override void UpdateState(StateManager stateManager)
         {
-            if (CleaveDone &&  CleaveCount >= 3)
+            // Check if the cleave attack is done
+            if (CleaveDone && CleaveCount >= 3)
             {
                 stateManager.SwitchState(stateManager.RageState);
             }

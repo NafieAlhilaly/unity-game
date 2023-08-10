@@ -4975,7 +4975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2222947456335998546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.005, y: -0.057, z: -0.2621614}
+  m_LocalPosition: {x: 0.005, y: -0.057, z: 0}
   m_LocalScale: {x: 0.1535688, y: 0.1535688, z: 0.1535688}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5023,7 +5023,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
   m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
@@ -5097,8 +5097,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eed4d017ebaa4f4bbd03183e135e8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
-  ShotSound: {fileID: 63580238715031080, guid: 9cc9bf1de8866c449bfd2a5677e577ab, type: 3}
+  Speed: 18
+  ShotSound: {fileID: 6620434612964154228, guid: f075674895ede6b44b023b316b49bd5a,
+    type: 3}
+  Player: {fileID: 0}
+  TargetPlayer: 1
 --- !u!82 &1180987917840612570
 AudioSource:
   m_ObjectHideFlags: 0

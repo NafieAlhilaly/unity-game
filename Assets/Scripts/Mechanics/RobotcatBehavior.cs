@@ -9,8 +9,6 @@ namespace Platformer.Mechanics
         float time = 2f;
         public GameObject player;
         public bool IsFightStarted = false;
-        public SwordBehavior sword;
-        bool readyToAttack = false;
         public float MaxX = 0f;
 
         public float MinX = -3.35f;
@@ -31,15 +29,9 @@ namespace Platformer.Mechanics
             float y = Core.Fuzzy.ValueBetween(MinY, MaxY);
             StartCoroutine(Move(new Vector3(x, y, 0f), time));
         }
-        public void PrepareMovingObjectTo(GameObject objectToMove, Vector3 endPos, float time){
-            StartCoroutine(MoveObjectTo(objectToMove, endPos, time));
-        }
-        void Update()
+        public void PrepareMovingObjectTo(GameObject objectToMove, Vector3 endPos, float time)
         {
-            if (IsFightStarted)
-            {
-                StartCoroutine(AttackWithSword());
-            }
+            StartCoroutine(MoveObjectTo(objectToMove, endPos, time));
         }
 
         IEnumerator Move(Vector3 endPos, float time)
@@ -52,18 +44,8 @@ namespace Platformer.Mechanics
             }
         }
 
-        IEnumerator AttackWithSword()
+        IEnumerator MoveObjectTo(GameObject objectToMove, Vector3 endPos, float time)
         {
-            if (!readyToAttack)
-            {
-                sword.PrepareMovingTo(transform.position + new Vector3(-2.7f, 0, 0), 1.2f);
-                readyToAttack = true;
-                sword.RotateToTarget(player.transform);
-                yield return new WaitForSeconds(5.0f);
-            }
-        }
-
-        IEnumerator MoveObjectTo(GameObject objectToMove, Vector3 endPos, float time){
             beginPos = transform.position;
             for (float t = 0; t < 1; t += Time.deltaTime / time)
             {

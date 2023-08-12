@@ -33,6 +33,10 @@ namespace Hunter.Behaviour
                 }
                 if (AttackState == CleaveAttackState.Idle)
                 {
+
+                    int[] Sides = new[] { -1, 1 };
+                    int RndIndex = Random.Range(0, 2);
+                    StateManager.CleaveState.CleaveSide = Sides[RndIndex];
                     Invoke(nameof(Attack), StateManager.CleaveState.ChargeTime);
                     ChagringSound.Play();
                     CleaveEffect.Play();

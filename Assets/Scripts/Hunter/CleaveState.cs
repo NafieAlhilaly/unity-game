@@ -9,17 +9,11 @@ namespace Hunter
         public bool CleaveDone = false;
         public int CleaveCount = 0;
         public float CleaveSpeed = 1f;
-        [SerializeField] public float ChargeTime = 6f;
         public override void StartState(StateManager stateManager){
             CleaveCount++;
+
         }
-        public override void UpdateState(StateManager stateManager)
-        {
-            if (CleaveDone &&  CleaveCount >= 3)
-            {
-                stateManager.SwitchState(stateManager.RageState);
-            }
-        }
+        public override void UpdateState(StateManager stateManager){}
 
         public override void ApplyPlayerEffect()
         {

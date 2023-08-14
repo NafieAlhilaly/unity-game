@@ -6,10 +6,12 @@ namespace Hunter
     public class StateManager : MonoBehaviour
     {
         public BaseState CurrentState;
-        public CleaveState CleaveState = new CleaveState();
-        public IdleState IdleState = new IdleState();
-        public RageState RageState = new RageState();
+        public CleaveState CleaveState = new();
+        public IdleState IdleState = new();
+        public RageState RageState = new();
         public bool IsWaiting = true;
+        public float ChargeTime = 6;
+        public float RageChargeTime = 0;
 
         void Start()
         {
@@ -19,6 +21,7 @@ namespace Hunter
 
         void Update()
         {
+            Debug.Log(CurrentState);
             CurrentState.UpdateState(this);
             if (CurrentState == IdleState && IsWaiting)
             {
@@ -38,7 +41,14 @@ namespace Hunter
         {
             IsWaiting = false;
             yield return new WaitForSeconds(seconds);
-            SwitchState(CleaveState);
+            if (CleaveState.CleaveCount >= 3)
+            {
+                SwitchState(RageState);
+            }
+            else
+            {
+                SwitchState(CleaveState);
+            }
             yield return new WaitForSeconds(seconds * 0.6f);
             IsWaiting = true;
         }

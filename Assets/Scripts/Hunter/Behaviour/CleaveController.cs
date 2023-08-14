@@ -23,7 +23,7 @@ namespace Hunter.Behaviour
         }
         void Update()
         {
-            if (StateManager.CurrentState.GetType() == typeof(CleaveState))
+            if (StateManager.CurrentState.GetType() == typeof(CleaveState) || StateManager.CurrentState.GetType() == typeof(RageState))
             {
                 if (CurrentCleaveSide != StateManager.CleaveState.CleaveSide && AttackState == CleaveAttackState.Charging)
                 {
@@ -37,8 +37,21 @@ namespace Hunter.Behaviour
                     int[] Sides = new[] { -1, 1 };
                     int RndIndex = Random.Range(0, 2);
                     StateManager.CleaveState.CleaveSide = Sides[RndIndex];
-                    Invoke(nameof(Attack), StateManager.CleaveState.ChargeTime);
+                    var ChargeTime = StateManager.ChargeTime - StateManager.RageChargeTime;
+                    Invoke(nameof(Attack), ChargeTime);
+                    if (StateManager.CurrentState.GetType() == typeof(RageState))
+                    {
+                        ChagringSound.time = ChargeTime;
+                        // TODO: Increase `CleaveEffect` animation speed
+                        // labels: enhancement
+                        // milestones: 1
+                    }
+                    else
+                    {
+                        ChagringSound.time = 0;
+                    }
                     ChagringSound.Play();
+
                     CleaveEffect.Play();
                     AttackState = CleaveAttackState.Charging;
                 }

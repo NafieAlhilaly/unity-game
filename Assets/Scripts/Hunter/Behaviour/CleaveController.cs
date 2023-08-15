@@ -89,7 +89,7 @@ namespace Hunter.Behaviour
         {
             TriggerDeathZone = false;
             MeteorAtackEffect.Stop();
-            StateManager.SwitchState(StateManager.IdleState);
+            StateManager.SwitchState(StateManager.MoveState);
             AttackState = CleaveAttackState.Idle;
         }
     }

@@ -9,6 +9,7 @@ namespace Hunter
         public CleaveState CleaveState = new();
         public IdleState IdleState = new();
         public RageState RageState = new();
+        public MoveState MoveState = new();
         public bool IsWaiting = true;
         public float ChargeTime = 6;
         public float RageChargeTime = 0;
@@ -21,9 +22,8 @@ namespace Hunter
 
         void Update()
         {
-            Debug.Log(CurrentState);
             CurrentState.UpdateState(this);
-            if (CurrentState == IdleState && IsWaiting)
+            if (CurrentState.GetType() == typeof(IdleState) && IsWaiting)
             {
                 StartCoroutine(Wait(4f));
             }

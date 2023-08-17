@@ -25,7 +25,6 @@ namespace Hunter.Behaviour
             {
                 Vector3 Target = new(RandomXPoint, RandomYPoint, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, Target, Time.deltaTime * steps);
-                Debug.Log(ArrivedAtTarget(transform.position, Target));
                 if (ArrivedAtTarget(transform.position, Target))
                 {
                     StateManager.IsWaiting = true;

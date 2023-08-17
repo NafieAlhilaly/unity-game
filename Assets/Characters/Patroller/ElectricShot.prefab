@@ -5097,7 +5097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eed4d017ebaa4f4bbd03183e135e8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 18
+  Speed: 10
   ShotSound: {fileID: 6620434612964154228, guid: f075674895ede6b44b023b316b49bd5a,
     type: 3}
   Player: {fileID: 0}

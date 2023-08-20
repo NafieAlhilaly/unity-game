@@ -3979,6 +3979,7 @@ GameObject:
   - component: {fileID: 1082779267}
   - component: {fileID: 1082779266}
   - component: {fileID: 1082779268}
+  - component: {fileID: 1082779269}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -4053,6 +4054,21 @@ MonoBehaviour:
   Canvas: {fileID: 1527313830}
   SelectedNumber: 0
   Console: {fileID: 315337878}
+  FPStateManager: {fileID: 1082779269}
+--- !u!114 &1082779269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082779265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4514b0c13e06441adab669313a65ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FightPlatformsController: {fileID: 1082779268}
+  ReadyForCalculationPuzzle: 0
 --- !u!1 &1090666645
 GameObject:
   m_ObjectHideFlags: 0

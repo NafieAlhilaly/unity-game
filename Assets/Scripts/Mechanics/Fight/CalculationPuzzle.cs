@@ -1,8 +1,8 @@
 namespace Platformer.Mechanics.Fight
 {
-    public class CalculationPuzzle
+    public static class CalculationPuzzle
     {
-        public int DivisibleBy(int number, int range)
+        public static int DivisibleBy(int number, int range)
         {
             for (int i = 1; i <= range; i++)
             {

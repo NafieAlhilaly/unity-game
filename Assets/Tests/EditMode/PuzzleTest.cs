@@ -3,7 +3,6 @@ using Platformer.Mechanics.Fight;
 
 public class PuzzleTest
 {
-    CalculationPuzzle p = new();
     int[] options = { 1, 2, 3, 4, 5 };
 
     [Test]
@@ -17,11 +16,11 @@ public class PuzzleTest
         int DivisibleBy5 = 5;
 
         // Act
-        int result1 = p.DivisibleBy(DivisibleBy1, options.Length);
-        int result2 = p.DivisibleBy(DivisibleBy2, options.Length);
-        int result3 = p.DivisibleBy(DivisibleBy3, options.Length);
-        int result4 = p.DivisibleBy(DivisibleBy4, options.Length);
-        int result5 = p.DivisibleBy(DivisibleBy5, options.Length);
+        int result1 = CalculationPuzzle.DivisibleBy(DivisibleBy1, options.Length);
+        int result2 = CalculationPuzzle.DivisibleBy(DivisibleBy2, options.Length);
+        int result3 = CalculationPuzzle.DivisibleBy(DivisibleBy3, options.Length);
+        int result4 = CalculationPuzzle.DivisibleBy(DivisibleBy4, options.Length);
+        int result5 = CalculationPuzzle.DivisibleBy(DivisibleBy5, options.Length);
 
         // Assert
         Assert.IsTrue(result1 % DivisibleBy1 == 0);

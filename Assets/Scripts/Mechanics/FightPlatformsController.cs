@@ -15,7 +15,7 @@ namespace Platformer.Mechanics
         [SerializeField] ParticleSystem[] UpperPlatformPSs;
         [SerializeField] Text[] UpperPlatformNumbers;
         [SerializeField] Canvas Canvas;
-        [SerializeField] public  int SelectedNumber = 0;
+        [SerializeField] public int SelectedNumber = 0;
         [SerializeField] Text Console;
         void Start()
         {
@@ -24,7 +24,6 @@ namespace Platformer.Mechanics
             {
                 PS.Stop();
             }
-            StartCoroutine(PlayPlatformEffect());
         }
 
         void Update()
@@ -50,7 +49,7 @@ namespace Platformer.Mechanics
             {
                 Text text = UpperPlatformNumbers[i];
                 UpperPlatformPSs[i].Play();
-                text.text = (i+1).ToString();
+                text.text = (i + 1).ToString();
                 yield return new WaitForSeconds(0.3f);
             }
         }

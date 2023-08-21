@@ -1,15 +1,19 @@
 using System.Collections;
 using UnityEngine;
+using Platformer.Mechanics;
+using Platformer.Mechanics.Fight.FloatingPlatformState;
 
 namespace Hunter
 {
     public class StateManager : MonoBehaviour
     {
+        [SerializeField] FightPlatformsController FPController;
         public BaseState CurrentState;
         public CleaveState CleaveState = new();
         public IdleState IdleState = new();
         public RageState RageState = new();
         public MoveState MoveState = new();
+        public FinalAttack FinalAttack = new();
         public bool IsWaiting = true;
         public float ChargeTime = 6;
         public float RageChargeTime = 0;
@@ -22,6 +26,9 @@ namespace Hunter
 
         void Update()
         {
+            if(FPController.FPStateManager.CurrentState.GetType() == typeof(FailedState)){
+                SwitchState(FinalAttack);
+            }
             CurrentState.UpdateState(this);
             if (CurrentState.GetType() == typeof(IdleState) && IsWaiting)
             {

@@ -18,7 +18,7 @@ namespace Platformer.Mechanics
         [SerializeField] Canvas Canvas;
         [SerializeField] public int SelectedNumber = 0;
         [SerializeField] public Text Console;
-        [SerializeField] StateManager FPStateManager;
+        [SerializeField] public StateManager FPStateManager;
         void Start()
         {
             Invoke(nameof(CountDonwToMovePlatforms), time);

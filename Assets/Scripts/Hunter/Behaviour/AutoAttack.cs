@@ -11,13 +11,14 @@ namespace Hunter.Behaviour
         [SerializeField] GameObject Player;
         [SerializeField] float AngleModifier = 30f;
         [SerializeField] Shot ElectricShot;
-        enum AttackState
+        public enum AttackState
         {
             Idle,
             Charging,
-            Attacking
+            Attacking,
+            Stop
         }
-        [SerializeField] AttackState CurrentAttackState = AttackState.Idle;
+        [SerializeField] public AttackState CurrentAttackState = AttackState.Idle;
 
         void Update()
         {

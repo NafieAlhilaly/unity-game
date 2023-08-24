@@ -37,12 +37,18 @@ namespace Hunter.Behaviour
         void InitiatePurgeAttack()
         {
             AutoAttack.CurrentAttackState = AutoAttack.AttackState.Stop;
+            ChagringSound.time = 0;
             ChagringSound.Play();
             CleaveEffectR.Play();
             CleaveEffectL.Play();
-            FlushScreen.StartFlushing();
+            Invoke(nameof(Flush), 6);
             // TODO: Add finish scene
             // labels: todo
+        }
+
+        void Flush()
+        {
+            FlushScreen.StartFlushing();
         }
     }
 }

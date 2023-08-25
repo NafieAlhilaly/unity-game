@@ -13,5 +13,9 @@ namespace Platformer.Mechanics.Fight
             }
             return 0;
         }
+        public static bool Indivisible(int number)
+        {
+            return number % 2 != 0;
+        }
     }
 }

@@ -8,15 +8,32 @@ namespace Platformer.Mechanics.Fight.FloatingPlatformState
         public override void StartState(StateManager stateManager)
         {
             stateManager.HideOptions();
-            if (stateManager.FightPlatformsController.SelectedNumber == stateManager.PrepareCalculationPuzzleState.Divisible)
+            if (stateManager.PrepareCalculationPuzzleState.SelectedCalculationPuzzle == 2)
             {
-                stateManager.FightPlatformsController.Console.text += "... Passed";
-                stateManager.StartSwitchStateAfterSeconds(stateManager.IdleState, 7);
+                bool Indivisible = CalculationPuzzle.Indivisible(stateManager.FightPlatformsController.SelectedNumber);
+                if (Indivisible)
+                {
+                    stateManager.FightPlatformsController.Console.text += "... Passed";
+                    stateManager.StartSwitchStateAfterSeconds(stateManager.IdleState, 7);
+                }
+                else
+                {
+                    stateManager.FightPlatformsController.Console.text += "... Failed";
+                    stateManager.SwitchState(stateManager.FailedState);
+                }
             }
-            else
+            if (stateManager.PrepareCalculationPuzzleState.SelectedCalculationPuzzle == 1)
             {
-                stateManager.FightPlatformsController.Console.text += "... Failed";
-                stateManager.SwitchState(stateManager.FailedState);
+                if (stateManager.FightPlatformsController.SelectedNumber == stateManager.PrepareCalculationPuzzleState.Divisible)
+                {
+                    stateManager.FightPlatformsController.Console.text += "... Passed";
+                    stateManager.StartSwitchStateAfterSeconds(stateManager.IdleState, 7);
+                }
+                else
+                {
+                    stateManager.FightPlatformsController.Console.text += "... Failed";
+                    stateManager.SwitchState(stateManager.FailedState);
+                }
             }
         }
 

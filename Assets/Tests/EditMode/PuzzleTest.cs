@@ -29,4 +29,28 @@ public class PuzzleTest
         Assert.IsTrue(result4 % DivisibleBy4 == 0);
         Assert.IsTrue(result5 % DivisibleBy5 == 0);
     }
+    [Test]
+    public void TestIndivisible()
+    {
+        // Arrange
+        int n1 = 1;
+        int n2 = 2;
+        int n3 = 3;
+        int n4 = 4;
+        int n5 = 5;
+
+        // Act
+        bool result1 = CalculationPuzzle.Indivisible(n1);
+        bool result2 = CalculationPuzzle.Indivisible(n2);
+        bool result3 = CalculationPuzzle.Indivisible(n3);
+        bool result4 = CalculationPuzzle.Indivisible(n4);
+        bool result5 = CalculationPuzzle.Indivisible(n5);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsFalse(result2);
+        Assert.IsTrue(result3);
+        Assert.IsFalse(result4);
+        Assert.IsTrue(result5);
+    }
 }

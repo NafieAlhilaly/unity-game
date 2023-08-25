@@ -36,6 +36,7 @@ namespace Platformer.Mechanics.Fight.FloatingPlatformState
 
         public void ShowOptions()
         {
+            FightPlatformsController.SelectedNumber = 0;
             StartCoroutine(FightPlatformsController.PlayPlatformEffect());
         }
         public void HideOptions()

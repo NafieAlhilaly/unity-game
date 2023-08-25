@@ -37,7 +37,7 @@ namespace Hunter.Behaviour
 
         bool ArrivedAtTarget(Vector3 currentPosition, Vector3 distance)
         {
-            return currentPosition.x == distance.x && currentPosition.y == distance.y;
+            return Vector3.Distance(currentPosition, distance) < 0.2;
         }
     }
 }

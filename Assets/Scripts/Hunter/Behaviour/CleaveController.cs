@@ -42,9 +42,6 @@ namespace Hunter.Behaviour
                     if (StateManager.CurrentState.GetType() == typeof(RageState))
                     {
                         ChagringSound.time = ChargeTime;
-                        // TODO: Increase `CleaveEffect` animation speed
-                        // labels: enhancement
-                        // milestones: 1
                     }
                     else
                     {
@@ -64,7 +61,7 @@ namespace Hunter.Behaviour
             var p = collider.gameObject.GetComponent<PlayerController>();
             if (p != null && TriggerDeathZone)
             {
-                Schedule<PlayerEnteredDeathZone>();
+                Schedule<PlayerEnemyCollision>();
             }
         }
         void OnTriggerStay2D(Collider2D collider)
@@ -72,7 +69,7 @@ namespace Hunter.Behaviour
             var p = collider.gameObject.GetComponent<PlayerController>();
             if (p != null && TriggerDeathZone)
             {
-                Schedule<PlayerEnteredDeathZone>();
+                Schedule<PlayerEnemyCollision>();
             }
         }
 

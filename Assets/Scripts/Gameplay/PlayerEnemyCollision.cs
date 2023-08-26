@@ -44,7 +44,16 @@ namespace Platformer.Gameplay
             }
             else
             {
-                Schedule<PlayerDeath>();
+                if (player.health.maxHP <= 0)
+                {
+                    Schedule<PlayerDeath>();
+                }
+                else
+                {
+                    player.audioSource.PlayOneShot(player.ouchAudio);
+                    player.Bounce(30);
+                    player.health.maxHP--;
+                }
             }
         }
     }

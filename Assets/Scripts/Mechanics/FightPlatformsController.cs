@@ -1,6 +1,7 @@
 using System.Collections;
 using Platformer.Mechanics.Fight.FloatingPlatformState;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Platformer.Mechanics
@@ -19,6 +20,7 @@ namespace Platformer.Mechanics
         [SerializeField] public int SelectedNumber = 0;
         [SerializeField] public Text Console;
         [SerializeField] public StateManager FPStateManager;
+        [SerializeField] PlayerController Player;
         void Start()
         {
             Invoke(nameof(CountDonwToMovePlatforms), time);
@@ -34,12 +36,17 @@ namespace Platformer.Mechanics
             {
                 UpperPlatform.transform.position = Vector3.MoveTowards(UpperPlatform.transform.position, UpperPlatformPath.endPosition, Time.deltaTime * 0.6f);
             }
-            if (MovingPlatform && UpperPlatform.transform.position.y == UpperPlatformPath.endPosition.y){
+            if (MovingPlatform && UpperPlatform.transform.position.y == UpperPlatformPath.endPosition.y)
+            {
                 FPStateManager.ReadyForCalculationPuzzle = true;
             }
             if (MovingPlatform && UpperPlatform.transform.position.y <= UpperPlatformPath.endPosition.y)
             {
                 LowerPlatform.transform.position = Vector3.MoveTowards(LowerPlatform.transform.position, LowerPlatformPath.endPosition, Time.deltaTime * 0.4f);
+            }
+            if (Player.health.maxHP <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 
@@ -50,7 +57,7 @@ namespace Platformer.Mechanics
 
         public IEnumerator PlayPlatformEffect()
         {
-            for (int i = 0; i <= UpperPlatformPSs.Length; i++)
+            for (int i = 0; i < UpperPlatformPSs.Length; i++)
             {
                 Text text = UpperPlatformNumbers[i];
                 UpperPlatformPSs[i].Play();

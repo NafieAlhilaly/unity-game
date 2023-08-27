@@ -2,7 +2,6 @@ using System.Collections;
 using Platformer.Mechanics.Fight.FloatingPlatformState;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 namespace Platformer.Mechanics
@@ -17,7 +16,6 @@ namespace Platformer.Mechanics
         [SerializeField] float time = 30f;
         [SerializeField] ParticleSystem[] UpperPlatformPSs;
         [SerializeField] TextMeshPro[] UpperPlatformNumbers;
-        [SerializeField] Canvas Canvas;
         [SerializeField] public int SelectedNumber = 0;
         [SerializeField] public TextMeshPro Console;
         [SerializeField] public StateManager FPStateManager;

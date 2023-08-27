@@ -3,6 +3,7 @@ using Platformer.Mechanics.Fight.FloatingPlatformState;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Platformer.Mechanics
 {
@@ -15,10 +16,10 @@ namespace Platformer.Mechanics
         [SerializeField] bool MovingPlatform = false;
         [SerializeField] float time = 30f;
         [SerializeField] ParticleSystem[] UpperPlatformPSs;
-        [SerializeField] Text[] UpperPlatformNumbers;
+        [SerializeField] TextMeshPro[] UpperPlatformNumbers;
         [SerializeField] Canvas Canvas;
         [SerializeField] public int SelectedNumber = 0;
-        [SerializeField] public Text Console;
+        [SerializeField] public TextMeshPro Console;
         [SerializeField] public StateManager FPStateManager;
         [SerializeField] PlayerController Player;
         void Start()
@@ -59,7 +60,7 @@ namespace Platformer.Mechanics
         {
             for (int i = 0; i < UpperPlatformPSs.Length; i++)
             {
-                Text text = UpperPlatformNumbers[i];
+                TextMeshPro text = UpperPlatformNumbers[i];
                 UpperPlatformPSs[i].Play();
                 text.text = (i + 1).ToString();
                 yield return new WaitForSeconds(0.3f);
@@ -70,7 +71,7 @@ namespace Platformer.Mechanics
         {
             for (int i = 0; i <= UpperPlatformPSs.Length; i++)
             {
-                Text text = UpperPlatformNumbers[i];
+                TextMeshPro text = UpperPlatformNumbers[i];
                 UpperPlatformPSs[i].Stop();
                 text.text = " ";
                 yield return new WaitForSeconds(0.3f);

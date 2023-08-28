@@ -1,6 +1,7 @@
 using Platformer.Core;
 using Platformer.Mechanics;
 using Platformer.Model;
+using UnityEngine;
 using static Platformer.Core.Simulation;
 
 namespace Platformer.Gameplay
@@ -18,7 +19,7 @@ namespace Platformer.Gameplay
 
         public override void Execute()
         {
-            var willHurtEnemy = player.Bounds.center.y >= enemy.Bounds.max.y;
+            var willHurtEnemy = false;
 
             if (willHurtEnemy)
             {
@@ -51,7 +52,6 @@ namespace Platformer.Gameplay
                 else
                 {
                     player.audioSource.PlayOneShot(player.ouchAudio);
-                    player.Bounce(30);
                     player.health.maxHP--;
                 }
             }

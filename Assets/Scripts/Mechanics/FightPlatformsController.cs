@@ -1,8 +1,9 @@
 using System.Collections;
 using Platformer.Mechanics.Fight.FloatingPlatformState;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
+using Platformer.Gameplay;
+using static Platformer.Core.Simulation;
 
 namespace Platformer.Mechanics
 {
@@ -20,6 +21,8 @@ namespace Platformer.Mechanics
         [SerializeField] public TextMeshPro Console;
         [SerializeField] public StateManager FPStateManager;
         [SerializeField] PlayerController Player;
+        [SerializeField] FlushScreen FS;
+        bool alive = true;
         void Start()
         {
             Invoke(nameof(CountDonwToMovePlatforms), time);
@@ -43,9 +46,11 @@ namespace Platformer.Mechanics
             {
                 LowerPlatform.transform.position = Vector3.MoveTowards(LowerPlatform.transform.position, LowerPlatformPath.endPosition, Time.deltaTime * 0.4f);
             }
-            if (Player.health.maxHP <= 0)
+            if (Player.health.maxHP <= 0 && alive)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Schedule<SceneRestart>(1.5f);
+                FS.StartFlushing();
+                alive = false;
             }
         }
 

@@ -61,7 +61,9 @@ namespace Hunter.Behaviour
             var p = collider.gameObject.GetComponent<PlayerController>();
             if (p != null && TriggerDeathZone)
             {
-                Schedule<PlayerEnemyCollision>();
+                PlayerEnemyCollision ev = Schedule<PlayerEnemyCollision>();
+                ev.player = p;
+                ev.enemy = null;
             }
         }
         void OnTriggerStay2D(Collider2D collider)
@@ -69,7 +71,9 @@ namespace Hunter.Behaviour
             var p = collider.gameObject.GetComponent<PlayerController>();
             if (p != null && TriggerDeathZone)
             {
-                Schedule<PlayerEnemyCollision>();
+                PlayerEnemyCollision ev = Schedule<PlayerEnemyCollision>();
+                ev.player = p;
+                ev.enemy = null;
             }
         }
 

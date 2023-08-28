@@ -21,7 +21,7 @@ namespace Platformer.Mechanics
 
         IEnumerator Flushing()
         {
-            for (float i = 0; i <= 1; i += 0.1f)
+            for (float i = 0; i < 1; i += 0.1f)
             {
                 Color newColor = spriteRenderer.color;
                 newColor.a = i;

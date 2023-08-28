@@ -15,7 +15,7 @@ namespace Platformer.Mechanics
         [SerializeField] PatrolPath LowerPlatformPath;
         [SerializeField] bool MovingPlatform = false;
         [SerializeField] float time = 30f;
-        [SerializeField] ParticleSystem[] UpperPlatformPSs;
+        [SerializeField] public ParticleSystem[] UpperPlatformPSs;
         [SerializeField] TextMeshPro[] UpperPlatformNumbers;
         [SerializeField] public int SelectedNumber = 0;
         [SerializeField] public TextMeshPro Console;
@@ -46,7 +46,7 @@ namespace Platformer.Mechanics
             {
                 LowerPlatform.transform.position = Vector3.MoveTowards(LowerPlatform.transform.position, LowerPlatformPath.endPosition, Time.deltaTime * 0.4f);
             }
-            if (Player.health.maxHP <= 0 && alive)
+            if (Player.health.currentHP <= 0 && alive)
             {
                 Schedule<SceneRestart>(1.5f);
                 FS.StartFlushing();
@@ -64,7 +64,6 @@ namespace Platformer.Mechanics
             for (int i = 0; i < UpperPlatformPSs.Length; i++)
             {
                 TextMeshPro text = UpperPlatformNumbers[i];
-                UpperPlatformPSs[i].Play();
                 text.text = (i + 1).ToString();
                 yield return new WaitForSeconds(0.3f);
             }

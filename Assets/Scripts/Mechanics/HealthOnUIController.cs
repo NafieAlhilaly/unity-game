@@ -9,7 +9,7 @@ namespace Platformer.Mechanics
         [SerializeField] PlayerController Player;
         void Update()
         {
-            HealthOnUI.text = Player.health.maxHP.ToString();
+            HealthOnUI.text = Player.health.currentHP + "/" + Player.health.maxHP.ToString();
         }
     }
 
